@@ -1,5 +1,5 @@
-use anyhow::Result;
-use clap::{Parser, Subcommand};
+use anyhow::Result;//统一处理所有模块的错误
+use clap::{Parser, Subcommand};//命令行解析工具
 
 // 引入模块
 mod commands;
@@ -36,7 +36,7 @@ enum Commands {
 
 fn main() -> Result<()> {
     let cli = Cli::parse();
-    
+    // 使用 match 模式匹配，将用户的命令路由到具体的处理函数。
     match cli.command {
         Commands::Init => commands::init()?,
         Commands::HashObject { write, file } => commands::hash_object(&file, write)?,
