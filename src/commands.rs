@@ -2,7 +2,6 @@ use anyhow::{Context, Result};
 use chrono::Local;
 use sha1::{Digest, Sha1};
 use std::collections::HashMap;
-use std::fmt::Write as FmtWrite;
 use std::fs;
 use std::path::Path;
 
