@@ -42,7 +42,7 @@ pub fn add(file_path: &str) -> Result<()> {
 
     // 2. 更新暂存区 (Index)
     let index_path: &str = ".minigit/index";
-    let mut index_entries = HashMap::new();
+    let mut index_entries = HashMap::new();// 使用哈希表，防止同一个文件被添加多次
     
     if Path::new(index_path).exists() {
         let index_content: String = fs::read_to_string(index_path)?;

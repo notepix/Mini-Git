@@ -61,6 +61,7 @@ impl GitObject for Commit {
     fn object_type(&self) -> &'static str { "commit" }
     fn serialize_data(&self) -> Vec<u8> {
         let mut data: String = String::new();
+        // 使用 writeln! 宏向字符串中追加带换行的文本
         writeln!(&mut data, "tree {}", self.tree_oid).unwrap();
         if let Some(parent) = &self.parent_oid {
             writeln!(&mut data, "parent {}", parent).unwrap();
