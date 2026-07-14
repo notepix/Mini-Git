@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# 先统一编译一次！
 echo "=== 编译项目中... ==="
 cargo build
 
 echo -e "\n=== 1. 初始化空仓库 ==="
-# 直接运行编译好的二进制文件！
 ./target/debug/minigit init
 
 echo -e "\n=== 2. 创建测试文件 V1 ==="
@@ -19,7 +17,7 @@ echo -e "\n=== 3. 将文件添加到暂存区 ==="
 ./target/debug/minigit add fileB.txt
 
 echo -e "\n=== 4. 验证底层对象生成 ==="
-tree .minigit/objects  # 记得先用 sudo apt install tree 安装一下
+tree .minigit/objects
 
 echo -e "\n=== 5. 执行第一次提交 ==="
 ./target/debug/minigit commit -m "Initial commit: Add fileA and fileB"
